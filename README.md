@@ -63,3 +63,41 @@ inner join skills_job_dim on top_paying_jobs.job_id= skills_job_dim.job_id
 inner join skills_dim on skills_job_dim.skill_id= skills_dim.skill_id
 order by
 	salary_year_avg DESC 
+
+**problem 2 insights: sql is leading in skills needed for most data analyst roles followed by python and data visualization tools such as tableau.
+SQL: Appears in 40 of 45 jobs (89%), 
+Python: Appears in 19 jobs (42%).
+Tableau: Appears in 17 jobs (38%).
+Excel: Appears in 14 jobs (31%).
+R: Appears in 13 jobs (29%).
+
+
+
+Problem set 3
+
+Question: What are the top skills based on salary?
+
+- Look at the average salary associated with each skill for Data Analyst positions.
+- Focuses on roles with specified salaries, regardless of location.
+- Why? It reveals how different skills impact salary levels for Data Analysts and helps identify the most financially rewarding skills to acquire or improve.
+
+select
+skills,
+round(avg(salary_year_avg),0)as avg_salary
+from job_postings_fact
+join skills_job_dim on job_postings_fact.job_id = skills_job_dim.job_id
+join skills_dim on skills_job_dim.skill_id = skills_dim.skill_id
+where
+	job_title_short = 'Data Analyst' and 
+    salary_year_avg is not null
+    -- and job_work_from_home = true
+group by
+	skills
+order by 
+	avg_salary desc
+limit 25
+
+
+**problem 3 insights:The data shows that specialized technical skills, such as Solidity, Couchbase, and Golang, are associated with higher average salaries. However, these results may reflect specialized or senior-level positions rather than typical data analyst jobs.
+
+Rather than choosing skills based on salary alone, it is important to consider job demand, salary potential, and career goals. Based on the previous dataset, SQL, Python, Excel, and Tableau or Power BI are strong skills to prioritize.
