@@ -73,6 +73,9 @@ R: Appears in 13 jobs (29%).
 
 
 
+<img width="2180" height="1574" alt="data_analyst_skills_visualization" src="https://github.com/user-attachments/assets/dbf7bdf5-937c-4f53-9cf1-d788e0be7f74" />
+
+
 Problem set 3
 
 Question: What are the top skills based on salary?
